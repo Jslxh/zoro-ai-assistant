@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light Theme: Predominantly light lavenders and violets */
+    --background: 270 80% 97%; /* Very light, almost white, lavender */
+    --foreground: 270 40% 15%; /* Very dark purple */
+
+    --card: 0 0% 100%; /* White */
+    --card-foreground: 270 40% 15%;
+
+    --popover: 0 0% 100%; /* White */
+    --popover-foreground: 270 40% 15%;
+
+    --primary: 271 76% 53%; /* Violet (#8A2BE2) */
+    --primary-foreground: 0 0% 100%; /* White */
+
+    --secondary: 270 70% 90%; /* Light lavender */
+    --secondary-foreground: 270 50% 40%; /* Medium purple */
+
+    --muted: 270 70% 94%; /* Very light muted lavender */
+    --muted-foreground: 270 40% 60%; /* Medium-light muted purple */
+
+    --accent: 271 70% 65%; /* Vibrant lighter purple */
+    --accent-foreground: 0 0% 100%; /* White */
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 270 50% 88%; /* Light purple border */
+    --input: 0 0% 100%; /* White inputs */
+    --ring: 271 70% 65%; /* Matches accent */
+
+    --radius: 0.5rem;
+
+    --chart-1: 271 70% 50%;
+    --chart-2: 271 60% 60%;
+    --chart-3: 271 50% 70%;
+    --chart-4: 271 80% 55%;
+    --chart-5: 271 75% 65%;
+
+    /* Light Theme Sidebar */
+    --sidebar-background: 270 60% 94%; /* Light lavender, distinct from page bg */
+    --sidebar-foreground: 270 40% 15%;
+    --sidebar-primary: 271 70% 65%; /* Accent purple */
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 271 76% 53%; /* Primary purple (Violet) */
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 270 50% 85%;
+    --sidebar-ring: 271 70% 65%;
+  }
+
+  .dark {
+    /* Dark Theme: "Black - PurpleViolet - Teal" based on image */
+    --background: 270 15% 5%; /* Very dark, almost black, slight purple tint */
+    --foreground: 270 20% 90%; /* Light lavender for general text */
+
+    --card: 270 15% 7%; /* Slightly lighter than bg for very subtle lift */
+    --card-foreground: 270 20% 90%;
+
+    --popover: 270 15% 7%; 
+    --popover-foreground: 270 20% 90%;
+
+    --primary: 275 70% 70%; /* Vibrant Purple for logo, main icons, titles */
+    --primary-foreground: 270 100% 98%; /* White text for primary elements if needed */
+
+    --secondary: 270 20% 20%; /* Muted darker purple */
+    --secondary-foreground: 270 20% 70%; /* Lighter purple for secondary text */
+
+    --muted: 270 15% 12%; /* Dark, desaturated purple for muted elements (e.g. TabList bg) */
+    --muted-foreground: 270 10% 60%; /* Greyer/less saturated purple for muted text (placeholders) */
+
+    --accent: 180 70% 48%; /* Teal for buttons (Send), active tabs */
+    --accent-foreground: 270 100% 98%; /* White text for teal buttons */
+
+    --destructive: 0 70% 55%; 
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 270 10% 18%; /* Subtle dark purple border */
+    --input: 270 10% 10%; /* Distinct dark background for input fields */
+    --ring: 180 70% 48%; /* Teal focus ring */
+
+    /* Chart colors for dark theme, purple-based */
+    --chart-1: 275 70% 50%;
+    --chart-2: 275 60% 60%;
+    --chart-3: 275 50% 70%;
+    --chart-4: 275 80% 55%;
+    --chart-5: 275 75% 65%;
+
+    /* Dark Theme Sidebar */
+    --sidebar-background: 270 15% 6%; 
+    --sidebar-foreground: 270 20% 90%;
+    --sidebar-primary: 275 70% 70%; 
+    --sidebar-primary-foreground: 270 100% 98%;
+    --sidebar-accent: 180 70% 48%; 
+    --sidebar-accent-foreground: 270 100% 98%;
+    --sidebar-border: 270 10% 15%;
+    --sidebar-ring: 180 70% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  /* Custom scrollbar for "Successfully Emailed To" section in history */
+  .history-sent-to-scrollbar [data-radix-scroll-area-scrollbar][data-orientation="vertical"] {
+    @apply bg-muted-foreground/20 rounded-lg; /* Light, slightly transparent track */
+  }
+  .history-sent-to-scrollbar [data-radix-scroll-area-thumb] {
+    @apply bg-black rounded-lg; /* Explicitly black thumb */
+  }
+
+  /* Custom scrollbar for Employee Directory table */
+  .employee-directory-scrollbar [data-radix-scroll-area-scrollbar][data-orientation="vertical"] {
+    @apply bg-muted-foreground/20 rounded-lg; /* Light, slightly transparent track */
+  }
+  .employee-directory-scrollbar [data-radix-scroll-area-thumb] {
+    @apply bg-black rounded-lg; /* Explicitly black thumb */
+  }
+  /* Scrollbar styles for WebKit browsers */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: #7c3aed; /* violet-500 */
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+/* Firefox */
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: #7c3aed transparent; /* violet-500 */
+}
+
+}
