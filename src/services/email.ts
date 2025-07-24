@@ -146,5 +146,11 @@ export async function getEmployees(): Promise<Employee[]> {
       role: 'Intern',
       department: 'Marketing',
     },
+    {
+      name: 'Sandhana',
+      email: 'jayasandhanamari@gmail.com',
+      role: 'Project Manager',
+      department: 'Product Management',
+    },
   ];
 }
