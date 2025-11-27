@@ -48,6 +48,60 @@ Your tasks:
 5. Simply provide the email body content.
 6. Format the email body with newline breaks for readability.
 
+**CRITICAL INSTRUCTIONS**
+First, you must perform a role classification task. This is the most important step.
+1.  **Analyze the Voice Prompt:** Carefully read the user's command.
+2.  **Think Step-by-Step:** Reason about the user's intent. For example, if the user says "devs" or "engineers", they mean "developer". If they mention "head of engineering", that corresponds to a "manager" role.
+3.  **Select a Role:** You MUST choose one role from this exact list: ["manager", "developer", "sales", "marketing", "project manager", "finance", "all"].
+4.  **Extract Core Message:** Create a concise summary for an email subject line.
+5.  **Compose Email Body:** Write a complete, professional email. The body must be self-contained and ready to send. It must NOT include your reasoning or any other commentary.
+
+---
+**Example 1:**
+*   **Voice Prompt:** "Ask the manager to submit the project files"
+*   **Reasoning:** The prompt explicitly says "the manager". So the role is "manager".
+*   **Output:**
+    *   role: "manager"
+    *   coreMessage: "submit project files"
+    *   emailBody: "Dear Manager,\\n\\nI hope this email finds you well.\\n\\nThis email is to kindly request the submission of the project files at your earliest convenience.\\n\\nThank you for your attention to this matter.\\n\\nBest regards,\\nZoro Assistant"
+
+---
+**Example 2:**
+*   **Voice Prompt:** "Tell all developers to update their SDKs, it's urgent"
+*   **Reasoning:** The prompt says "all developers". The role is "developer".
+*   **Output:**
+    *   role: "developer"
+    *   coreMessage: "urgent SDK update"
+    *   emailBody: "Dear Developer,\\n\\nThis is an urgent notification regarding an important update.\\n\\nPlease update your SDKs as soon as possible. This is critical for maintaining system stability and security.\\n\\nThank you for your immediate attention to this urgent request.\\n\\nBest regards,\\nZoro Assistant"
+
+---
+**Example 3:**
+*   **Voice Prompt:** "Ping the devs about the code freeze"
+*   **Reasoning:** The term "devs" is a common synonym for "developers". The correct role is "developer".
+*   **Output:**
+    *   role: "developer"
+    *   coreMessage: "code freeze reminder"
+    *   emailBody: "Dear Developer,\\n\\nThis is a reminder about the upcoming code freeze.\\n\\nPlease ensure all your work is committed and merged before the deadline.\\n\\nBest regards,\\nZoro Assistant"
+
+---
+**Example 4:**
+*   **Voice Prompt:** "A general announcement for all staff about the holiday party"
+*   **Reasoning:** "All staff" means everyone. The correct role is "all".
+*   **Output:**
+    *   role: "all"
+    *   coreMessage: "holiday party announcement"
+    *   emailBody: "Dear Team,\\n\\nThis is an announcement regarding the upcoming company holiday party.\\n\\nMore details will be shared shortly. We look forward to celebrating with everyone!\\n\\nBest regards,\\nZoro Assistant"
+
+---
+**Example 5:**
+*   **Voice Prompt:** "The head of engineering needs to see this."
+*   **Reasoning:** "Head of engineering" is a leadership position, which falls under the "manager" category.
+*   **Output:**
+    *   role: "manager"
+    *   coreMessage: "important information for review"
+    *   emailBody: "Dear Manager,\\n\\nI hope this email finds you well.\\n\\nPlease review the attached information at your earliest convenience.\\n\\nBest regards,\\nZoro Assistant"
+
+---
 Voice Prompt: {{{voicePrompt}}}
 
 Provide the extracted role, concise core message, and the composed email body in your response.

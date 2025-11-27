@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
+    "evaluate": "npx ts-node --esm src/ai/evaluate-extraction.ts",
+    "evaluate:mock": "node src/ai/evaluate-extraction-mock.js",
     "genkit:dev": "genkit start -- tsx src/ai/dev.ts",
     "genkit:watch": "genkit start -- tsx --watch src/ai/dev.ts",
     "build": "next build",
