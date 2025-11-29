@@ -7,7 +7,7 @@
  * intended for email automation purposes.
  */
 
-import { ai } from '@/ai/genkit';
+import { ai } from '../genkit.ts';
 import { z } from 'genkit';
 
 // Input schema: describes the user's voice prompt

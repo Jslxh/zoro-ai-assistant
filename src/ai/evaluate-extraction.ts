@@ -2,10 +2,9 @@
 import { config } from 'dotenv';
 config();
 
-import { extractEmailDetails } from './flows/extract-email-details';
+import { extractEmailDetails } from './flows/extract-email-details.ts';
 
 // This is our "ground truth" test dataset.
-// In a real project, this would be much larger.
 const evaluationDataset = [
   { prompt: "Ask the manager to submit the project files", expectedRole: "manager" },
   { prompt: "Tell all developers to update their SDKs, it's urgent", expectedRole: "developer" },
